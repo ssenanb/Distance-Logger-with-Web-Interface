@@ -1,44 +1,11 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include "stdio.h"
 #include "string.h"
-/* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
 #define FILTER_SIZE 5
 #define RTC_WRITE_ADDRESS 0xD0
 #define RTC_READ_ADDRESS 0xD1
-/* USER CODE END PD */
 
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
 typedef struct{
   uint8_t second;
   uint8_t minute;
@@ -56,31 +23,19 @@ uint32_t current_distance = 0;
 uint32_t distanceBuffer[FILTER_SIZE];
 uint32_t distanceIndex = 0;
 uint8_t buffer[50];
-/* USER CODE END PM */
 
-/* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
 
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
-/* USER CODE BEGIN PFP */
 
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
 void selectionSort(uint16_t* arr, int size){ // sort from smallest to biggest
 
 	for (int i = 0; i < size - 1; i++) {
